@@ -1,1 +1,37 @@
+BEGIN
 
+  CREATE scanner for user input for grades
+  SET sum = 0
+  SET max = smallest float value
+  SET min = largest float value
+
+  DISPLAY user prompt "Enter 10 grades: "
+
+  FOR loop (i) 1 to 10
+    DISPLAY "Grade i + 1"
+
+    WHILE loop input is not a valid float
+      DISPLAY "Please enter valid floating-point number"
+      DISCARD invalid inputs
+    END WHILE loop
+
+    READ grade
+    ADD grade to sum
+    IF grade > max THEN
+      SET max = grade
+    END IF
+
+    IF grade < min THEN
+      SET min = grade
+    END IF
+  END FOR
+    
+  SET average = sum / 10
+
+  DISPLAY "Average Grade:"
+  DISPLAY "Maximum Grade:"
+  DISPLAY "Minimum Grade:"
+
+  CLOSE scanner
+
+END
