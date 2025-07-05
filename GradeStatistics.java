@@ -12,7 +12,7 @@ public class GradeStatistics {
 
         for (int i = 0; i < 10; i++) {
             System.out.print("Grade " + (i + 1) + ": ");
-            while (!scanner.hasNextFloat()) {
+            while (!scanner.hasNextFloat()) {//while loop if number isn't valid
                 System.out.println("Please enter a valid floating-point number.");
                 scanner.next(); // clear the invalid input
             }
