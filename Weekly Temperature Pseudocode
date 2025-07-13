@@ -1,0 +1,34 @@
+START
+
+CREATE empty list called days
+CREATE empty list called temperatures
+
+DEFINE weekDays as ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+FOR each day IN weekDays DO
+    DISPLAY "Enter the average temperature for [day]: "
+    READ temperature
+    ADD day TO days list
+    ADD temperature TO temperatures list
+END FOR
+
+DISPLAY "Type 'week' to display the full week's temperatures and average: "
+READ userInput
+
+IF userInput EQUALS "week" (case-insensitive) THEN
+    SET total TO 0
+
+    DISPLAY "Weekly Temperatures:"
+
+    FOR index FROM 0 TO size of days list - 1 DO
+        DISPLAY days[index] + ": " + temperatures[index]
+        ADD temperatures[index] TO total
+    END FOR
+
+    CALCULATE average AS total DIVIDED BY number of temperatures
+    DISPLAY "Weekly Average Temperature: " + average
+ELSE
+    DISPLAY "Program ended without displaying weekly data."
+END IF
+
+END
