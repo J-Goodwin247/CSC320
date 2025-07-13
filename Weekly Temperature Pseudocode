@@ -6,7 +6,7 @@ CREATE empty list called temperatures
 DEFINE weekDays as ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 FOR each day IN weekDays DO
-    DISPLAY "Enter the average temperature for [day]: "
+    DISPLAY "Enter the temperature for [day]: "
     READ temperature
     ADD day TO days list
     ADD temperature TO temperatures list
