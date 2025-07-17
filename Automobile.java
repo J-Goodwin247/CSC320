@@ -17,3 +17,15 @@ public class Automobile {
         System.out.println("Error in default constructor: " +e.getMessage());
     }
   }
+
+  public Automobile(String make, String model, String color, int year, int mileage) {
+    try {
+      this.make = make;
+      this.model = model;
+      this.color = color;
+      this.year = year;
+      this.mileage = mileage;
+    } catch (Exception e) {
+      System.out.println("Error in parameterized contructor: " + e.getMessage());
+    }
+  }
