@@ -48,13 +48,13 @@ public class Automobile {
 		try{
 			String[] info = new String[5];
 			info[0] = "Make: " + this.make;
-			into[1] = "Model: " + this.model;
+			info[1] = "Model: " + this.model;
 			info[2] = "Color: " + this.color;
 			info[3] = "Year: " + this.year;
 			info[4] = "Mileage: " + this.mileage;
 			return info;
 		} catch (Exception e) {
-			return new String[]{Could not retireve vehicle info. Error: " +e.getMessage();
+			return new String[]{"Could not retireve vehicle info. Error: " +e.getMessage()};
 		}
 	}
 
@@ -67,17 +67,17 @@ public class Automobile {
 			this.mileage = 0;
 			return "Vehicle information deleted.";
 		} catch (Exception e) {
-			return : Vehicle information failed to delete. Error: " + e.getMessage();
+			return "Vehicle information failed to delete. Error: " + e.getMessage();
 		}
 	}
 
 	public String updateVehicleInformation(String newColor, int newMileage) {
 		try {
 			if (newMileage < this.mileage) {
-				throw new Exception("New mileage can't be less than current mileage);
+				throw new Exception("New mileage can't be less than current mileage");
 			}
-			this.color = newColor
-			this.mileage = newMileage
+			this.color = newColor;
+			this.mileage = newMileage;
 			return "Vehicle information updated successfully.";
 		} catch (Exception e) {
 			return "Could not update vehicle information. Error: " + e.getMessage();
