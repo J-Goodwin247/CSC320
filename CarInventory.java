@@ -23,7 +23,7 @@ public class CarInventory {
 
 			//Step 4. Add vehicle 
 			System.out.println("\n---Adding New Vehicle---");
-			printVehicleInfo(myCar)
+			printVehicleInfo(myCar);
 
 			//Step 5. Call list method for new vehicle information
 			System.out.println("\n---Listing New Vehicle Information---");
@@ -32,7 +32,7 @@ public class CarInventory {
 			//Step 6. Change Vehicle Information
 			System.out.println("\n---Updating Vehicle Information---");
 			String updateResult = myCar.updateVehicleInformation ("Gold", 10000);
-			System.out.println(updateResult)
+			System.out.println(updateResult);
 
 			//Step 7. Call the listing method and print information
 			System.out.println("\n---Listing New Vehicle Information---");
