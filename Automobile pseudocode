@@ -1,0 +1,80 @@
+START
+
+CREATE CLASS Automobile
+  DEFINE PRIVATE VARIABLES:
+    make: String
+    model: String
+    color: String
+year: Integer
+mileage: Integer
+
+  CREATE METHOD Automobile()
+    TRY
+      SET make TO "N/A"
+      SET model TO "N/A"
+      SET color TO "N/A"
+      SET year TO 0
+      SET mileage TO 0
+  CATCH Exception
+      DISPLAY error message
+  END METHOD
+
+  CREATE METHOD Automobile(make, model, color, year, mileage)
+    TRY
+      SET instance make TO make
+      SET instance model TO model
+      SET instance color TO color
+      SET instance year TO year
+      SET instange mileage TO mileage
+    CATCH Exception
+      DISPLAY error message
+  END METHOD
+
+  CREATE METHOD addNewVehicle (make, model, color, year, mileage) RETURNS String
+    TRY
+      SET instance make TO make
+      SET instance model TO model
+      SET instance color TO color
+      SET instance year TO year
+      SET instange mileage TO mileage
+      RETURN "Vehicle added successfully."
+    CATCH Exception
+      RETURN "Could not add Vehicle. Erro:" + error message
+END METHOD
+
+CREATE METHOD listVehicleInformation() RETURNS Array of Strings
+    TRY
+        CREATE String array info[5]
+        info[0] = "Make: " + make
+        info[1] = "Model: " + model
+        info[2] = "Color: " + color
+        info[3] = "Year: " + year
+        info[4] = "Mileage: " + mileage
+        RETURN info
+    CATCH Exception
+        RETURN array with one element: "Could not retrieve vehicle info. Error: " + error message
+END METHOD
+
+CREATE METHOD removeVehicle() RETURNS String
+    TRY
+        SET make TO "N/A"
+        SET model TO "N/A"
+        SET color TO "N/A"
+        SET year TO 0
+        SET mileage TO 0
+        RETURN "Vehicle information deleted."
+    CATCH Exception
+        RETURN "Vehicle information failed to delete. Error: " + error message
+END METHOD
+
+CREATE METHOD updateVehicleInformation(newColor, newMileage) RETURNS String
+    TRY
+        IF newMileage < current mileage THEN
+            THROW Exception("New mileage can't be less than current mileage")
+        END IF
+        SET color TO newColor
+        SET mileage TO newMileage
+        RETURN "Vehicle information updated successfully."
+    CATCH Exception
+        RETURN "Could not update vehicle information. Error: " + error message
+END METHOD
