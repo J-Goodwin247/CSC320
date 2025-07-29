@@ -9,20 +9,19 @@ import java.util.List;
 public class Automobile {
 
     // --- Attributes ---
-    // These fields store the state of an Automobile object.
-
-    private String make;      // The manufacturer of the car (e.g., "Ford")
-    private String model;     // The model of the car (e.g., "Mustang")
-    private int year;         // The model year (e.g., 2023)
-    private String vin;       // The unique Vehicle Identification Number
-    private String color;     // The exterior color of the car
-    private int mileage;      // The current mileage on the odometer
-    private double price;     // The selling price of the car
-    private boolean isNew;    // True if the car is new, false if used
-    private String engineType; // e.g., "V6", "I4 Electric", "Hybrid"
-    private String transmission; // e.g., "Automatic", "Manual"
-    private List<String> features; // A list of special features like "Sunroof", "GPS"
-    private LocalDate dateAddedToInventory; // The date the car was added to the lot
+    
+    private String make; 
+    private String model;
+    private int year;     
+    private String vin;    
+    private String color;
+    private int mileage;   
+    private double price;     
+    private boolean isNew; 
+    private String engineType; 
+    private String transmission; 
+    private List<String> features; 
+    private LocalDate dateAddedToInventory; 
 
     // --- Constructors ---
 
