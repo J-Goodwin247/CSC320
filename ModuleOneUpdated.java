@@ -1,11 +1,10 @@
 import java.util.Scanner; // Import the Scanner class for user input
 
-public class PersonInfoUpdated {
+public class ModuleOneUpdated {
     public static void main(String[] args) {
         // Create a Scanner object to read input from the console
         Scanner input = new Scanner(System.in);
 
-        // --- User Input Section ---
         // Prompt the user for their information and store it in variables
         System.out.print("Enter first name: ");
         String firstName = input.nextLine();
@@ -22,10 +21,8 @@ public class PersonInfoUpdated {
         System.out.print("Enter zip code: ");
         String zipCode = input.nextLine();
         
-        // It's good practice to close the scanner when you're done with it
         input.close();
 
-        // --- Formatted Output Section ---
         // Print a header for the formatted output
         System.out.println("\n--- Person's Information ---");
 
