@@ -8,3 +8,18 @@ myCar.addFeature("Apple CarPlay");
 
 // Now, if you print the object, the features will be included
 System.out.println(myCar.toString());
+
+
+public boolean removeFeature(String feature) {
+    return this.features.remove(feature);
+}
+
+
+public boolean editFeature(String oldFeature, String newFeature) {
+    int index = this.features.indexOf(oldFeature);
+    if (index != -1) { // Check if the feature exists
+        this.features.set(index, newFeature);
+        return true;
+    }
+    return false; // Return false if the old feature wasn't found
+}
