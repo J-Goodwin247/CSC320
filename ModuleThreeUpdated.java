@@ -9,7 +9,7 @@ public class ModuleThreeUpdated {
         int numberOfWeeks = 4;
         double totalTaxWithholding = 0.0;
 
-        // Loop to calculate income for each of hte four weeks
+        // Loop to calculate income for each of the four weeks
         for (int i = 1; i <= numberOfWeeks; i++)    
             //Ask user for weekly income
             System.out.print("Enter income for week " + i + ": $");
