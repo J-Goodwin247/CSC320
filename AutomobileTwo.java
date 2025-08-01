@@ -12,8 +12,8 @@ public class Automobile {
     
     private String make; 
     private String model;
-    private int year;     
-    private String vin;    
+    private int year;    
+    private String vin;   
     private String color;
     private int mileage;   
     private double price;     
@@ -52,15 +52,15 @@ public class Automobile {
      * This is the most common way to create a new object, as it initializes
      * it with all its necessary data at the time of creation.
      *
-     * @param make    The manufacturer of the car.
-     * @param model   The model of the car.
-     * @param year    The model year.
-     * @param vin     The Vehicle Identification Number.
-     * @param color   The exterior color.
-     * @param mileage The current mileage.
-     * @param price   The selling price.
-     * @param isNew   The condition (true for new, false for used).
-     * @param engineType The type of engine.
+     * @param make         The manufacturer of the car.
+     * @param model        The model of the car.
+     * @param year         The model year.
+     * @param vin          The Vehicle Identification Number.
+     * @param color        The exterior color.
+     * @param mileage      The current mileage.
+     * @param price        The selling price.
+     * @param isNew        The condition (true for new, false for used).
+     * @param engineType   The type of engine.
      * @param transmission The type of transmission.
      */
     public Automobile(String make, String model, int year, String vin, String color, int mileage, double price, boolean isNew, String engineType, String transmission) {
@@ -126,6 +126,36 @@ public class Automobile {
         if (this.features != null && !feature.trim().isEmpty()) {
             this.features.add(feature);
         }
+    }
+
+    /**
+     * Removes a feature from the car's list of features.
+     * @param feature The feature to remove (e.g., "Sunroof").
+     * @return {@code true} if the feature was found and removed, {@code false} otherwise.
+     */
+    public boolean removeFeature(String feature) {
+        if (this.features != null) {
+            return this.features.remove(feature);
+        }
+        return false;
+    }
+
+    /**
+     * Edits an existing feature by replacing it with a new one.
+     * @param oldFeature The name of the feature to be replaced.
+     * @param newFeature The name of the new feature.
+     * @return {@code true} if the old feature was found and replaced, {@code false} otherwise.
+     */
+    public boolean editFeature(String oldFeature, String newFeature) {
+        if (this.features == null || oldFeature == null || newFeature == null || newFeature.trim().isEmpty()) {
+            return false;
+        }
+        int index = this.features.indexOf(oldFeature);
+        if (index != -1) { // -1 means the feature was not found
+            this.features.set(index, newFeature);
+            return true;
+        }
+        return false;
     }
 
     /**
