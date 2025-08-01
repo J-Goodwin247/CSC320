@@ -5,7 +5,7 @@ public class ModuleOneUpdated {
         // Create a Scanner object to read input from the console
         Scanner input = new Scanner(System.in);
 
-        // Prompt the user for their information and store it in variables
+        // Prompt the user for their information
         System.out.print("Enter first name: ");
         String firstName = input.nextLine();
 
@@ -26,8 +26,6 @@ public class ModuleOneUpdated {
         // Print a header for the formatted output
         System.out.println("\n--- Person's Information ---");
 
-        // Use System.out.printf() for a clean, formatted block of text
-        // %s is a placeholder for a string, and %n is a platform-independent newline
         System.out.printf("Full Name: %s %s%n", firstName, lastName);
         System.out.printf("Address:   %s%n", streetAddress);
         System.out.printf("           %s, %s%n", city, zipCode);
