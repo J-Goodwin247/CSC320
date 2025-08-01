@@ -118,21 +118,14 @@ public class Automobile {
 
     // --- Behavior Methods ---
 
-    /**
-     * Adds a single feature to the car's list of features.
-     * @param feature The feature to add (e.g., "Heated Seats").
-     */
+    //adding a feature
     public void addFeature(String feature) {
         if (this.features != null && !feature.trim().isEmpty()) {
             this.features.add(feature);
         }
     }
 
-    /**
-     * Removes a feature from the car's list of features.
-     * @param feature The feature to remove (e.g., "Sunroof").
-     * @return {@code true} if the feature was found and removed, {@code false} otherwise.
-     */
+    // removing a feature
     public boolean removeFeature(String feature) {
         if (this.features != null) {
             return this.features.remove(feature);
@@ -140,12 +133,7 @@ public class Automobile {
         return false;
     }
 
-    /**
-     * Edits an existing feature by replacing it with a new one.
-     * @param oldFeature The name of the feature to be replaced.
-     * @param newFeature The name of the new feature.
-     * @return {@code true} if the old feature was found and replaced, {@code false} otherwise.
-     */
+    //edit a feature
     public boolean editFeature(String oldFeature, String newFeature) {
         if (this.features == null || oldFeature == null || newFeature == null || newFeature.trim().isEmpty()) {
             return false;
