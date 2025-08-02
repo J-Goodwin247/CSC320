@@ -16,7 +16,7 @@ public class ModuleFourUpdated {
         // Check if grades were successfully read and the list is not empty
         if (grades == null || grades.isEmpty()) {
             System.out.println("Could not calculate statistics. Please check the file or its contents.");
-            return; // Exit the program
+            return; 
         }
 
         // Calculate statistics using dedicated methods
@@ -28,7 +28,7 @@ public class ModuleFourUpdated {
         displayResults(grades.size(), average, max, min);
     }
 
-    // Reads floating-point numbers from a specified file.
+    // Reads numbers from a specified file.
 
     public static List<Float> readGradesFromFile(String filename) {
         List<Float> grades = new ArrayList<>();
@@ -63,7 +63,6 @@ public class ModuleFourUpdated {
     public static void displayResults(int count, float average, float max, float min) {
         System.out.println("\n--- Grade Statistics ---");
         System.out.println("Grades Processed: " + count);
-        // Use printf for cleaner formatting of the float
         System.out.printf("Average Grade: %.2f\n", average);
         System.out.println("Maximum Grade: " + max);
         System.out.println("Minimum Grade: " + min);
