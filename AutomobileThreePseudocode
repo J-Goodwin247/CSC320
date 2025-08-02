@@ -1,0 +1,112 @@
+CLASS Automobile
+
+  // ATTRIBUTES
+  PRIVATE STRING make
+  PRIVATE STRING model
+  PRIVATE INTEGER year
+  PRIVATE STRING vin
+  PRIVATE STRING color
+  PRIVATE INTEGER mileage
+  PRIVATE DOUBLE price
+  PRIVATE BOOLEAN isNew
+  PRIVATE STRING engineType
+  PRIVATE STRING transmission
+  PRIVATE LIST OF STRING features
+  PRIVATE DATE dateAddedToInventory
+
+  // CONSTRUCTORS
+  FUNCTION Automobile()
+    BEGIN TRY
+      SET all string attributes to "Unknown" or similar placeholders
+      SET all numeric attributes to 0
+      SET isNew to TRUE
+      INITIALIZE features as a new empty List
+      SET dateAddedToInventory to the current date
+    CATCH Exception
+      PRINT error message to console
+    END TRY
+  END FUNCTION
+
+  FUNCTION Automobile(make, model, year, vin, etc...)
+    BEGIN TRY
+      ASSIGN all parameters to their corresponding attributes
+      INITIALIZE features as a new empty List
+      SET dateAddedToInventory to the current date
+    CATCH Exception
+      PRINT error message to console
+    END TRY
+  END FUNCTION
+
+  // GETTERS AND SETTERS
+  // General pattern for all attributes (e.g., Make)
+  FUNCTION getMake() RETURNS STRING
+    BEGIN TRY
+      RETURN this.make
+    CATCH Exception
+      PRINT error message
+      RETURN "Error"
+    END TRY
+  END FUNCTION
+
+  FUNCTION setMake(newMake) RETURNS STRING
+    BEGIN TRY
+      this.make = newMake
+      RETURN "Success message"
+    CATCH Exception
+      RETURN "Failure message"
+    END TRY
+  END FUNCTION
+  // ... Repeat this pattern for all other attributes
+
+  // BEHAVIOR METHODS
+  FUNCTION addFeature(feature) RETURNS STRING
+    BEGIN TRY
+      IF feature is valid THEN
+        ADD feature to this.features list
+        RETURN "Success: Feature added"
+      ELSE
+        RETURN "Failure: Invalid feature"
+      END IF
+    CATCH Exception
+      RETURN "Failure: Error occurred"
+    END TRY
+  END FUNCTION
+
+  FUNCTION removeFeature(feature) RETURNS STRING
+    BEGIN TRY
+      IF this.features contains feature THEN
+        REMOVE feature from this.features list
+        RETURN "Success: Feature removed"
+      ELSE
+        RETURN "Failure: Feature not found"
+      END IF
+    CATCH Exception
+      RETURN "Failure: Error occurred"
+    END TRY
+  END FUNCTION
+
+  FUNCTION editFeature(oldFeature, newFeature) RETURNS STRING
+    BEGIN TRY
+      FIND index of oldFeature in this.features list
+      IF oldFeature was found THEN
+        REPLACE item at index with newFeature
+        RETURN "Success: Feature updated"
+      ELSE
+        RETURN "Failure: Feature not found"
+      END IF
+    CATCH Exception
+      RETURN "Failure: Error occurred"
+    END TRY
+  END FUNCTION
+
+  // TOSTRING METHOD
+  FUNCTION toString() RETURNS STRING
+    BEGIN TRY
+      BUILD a formatted string containing all attribute values
+      RETURN the formatted string
+    CATCH Exception
+      RETURN "Failure: Could not generate string"
+    END TRY
+  END FUNCTION
+
+END CLASS
