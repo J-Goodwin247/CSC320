@@ -33,8 +33,8 @@ START
   // Calculate and display final results
   DECLARE REAL averageWeeklyWithholding = totalTaxWithholding / numberOfWeeks
 
-  PRINT "Total tax withheld for " + numberOfWeeks + " weeks: $" + totalTaxWithholding (formatted to 2 decimal places)
-  PRINT "Average weekly withholding: $" + averageWeeklyWithholding (formatted to 2 decimal places)
+  PRINT "Total tax withheld for " + numberOfWeeks + " weeks: $" + totalTaxWithholding 
+  PRINT "Average weekly withholding: $" + averageWeeklyWithholding 
 
   CLOSE the Scanner 
 END
