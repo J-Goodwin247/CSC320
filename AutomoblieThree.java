@@ -2,11 +2,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents a single automobile in the dealership's inventory.
- * This class holds all the essential details about a vehicle.
- * All methods include exception handling.
- */
 public class Automobile {
 
     // --- Attributes ---
@@ -26,11 +21,7 @@ public class Automobile {
 
     // --- Constructors ---
 
-    /**
-     * Default Constructor.
-     * Creates an Automobile object with default, placeholder values.
-     * Includes basic error handling.
-     */
+    // Default Constructor.
     public Automobile() {
         try {
             this.make = "Unknown";
@@ -50,22 +41,7 @@ public class Automobile {
         }
     }
 
-    /**
-     * Parameterized Constructor.
-     * Creates an Automobile object with specific values.
-     * Includes basic error handling.
-     *
-     * @param make         The manufacturer of the car.
-     * @param model        The model of the car.
-     * @param year         The model year.
-     * @param vin          The Vehicle Identification Number.
-     * @param color        The exterior color.
-     * @param mileage      The current mileage.
-     * @param price        The selling price.
-     * @param isNew        The condition (true for new, false for used).
-     * @param engineType   The type of engine.
-     * @param transmission The type of transmission.
-     */
+    // Parameterized Constructor.
     public Automobile(String make, String model, int year, String vin, String color, int mileage, double price, boolean isNew, String engineType, String transmission) {
         try {
             this.make = make;
@@ -85,23 +61,19 @@ public class Automobile {
         }
     }
 
-    // --- Getters and Setters (with Exception Handling) ---
-    // Note: Getters return a default value on failure to maintain their return type.
+    // --- Getters and Setters ---
 
     public String getMake() {
         try {
             return this.make;
         } catch (Exception e) {
             System.err.println("Failure retrieving make: " + e.getMessage());
-            return "Error"; // Return a sensible default/error indicator
+            return "Error";
         }
     }
 
-    /**
-     * Sets the make of the automobile.
-     * @param make The new make.
-     * @return A string indicating success or failure.
-     */
+    // Sets the make of the automobile.
+
     public String setMake(String make) {
         try {
             this.make = make;
@@ -120,11 +92,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Sets the model of the automobile.
-     * @param model The new model.
-     * @return A string indicating success or failure.
-     */
+    // Sets the model of the automobile.
+
     public String setModel(String model) {
         try {
             this.model = model;
@@ -139,15 +108,12 @@ public class Automobile {
             return this.year;
         } catch (Exception e) {
             System.err.println("Failure retrieving year: " + e.getMessage());
-            return 0; // Return a sensible default
+            return 0;
         }
     }
 
-    /**
-     * Sets the year of the automobile.
-     * @param year The new year.
-     * @return A string indicating success or failure.
-     */
+    // Sets the year of the automobile.
+
     public String setYear(int year) {
         try {
             if (year < 1886 || year > LocalDate.now().getYear() + 2) {
@@ -169,11 +135,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Sets the VIN of the automobile.
-     * @param vin The new VIN.
-     * @return A string indicating success or failure.
-     */
+    // Sets the VIN of the automobile.
+
     public String setVin(String vin) {
         try {
             this.vin = vin;
@@ -192,11 +155,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Sets the color of the automobile.
-     * @param color The new color.
-     * @return A string indicating success or failure.
-     */
+    // Sets the color of the automobile.
+
     public String setColor(String color) {
         try {
             this.color = color;
@@ -205,21 +165,18 @@ public class Automobile {
             return "Failure: Could not set color. " + e.getMessage();
         }
     }
-    
+
     public int getMileage() {
         try {
             return this.mileage;
         } catch (Exception e) {
             System.err.println("Failure retrieving mileage: " + e.getMessage());
-            return -1; // Return a sensible default/error indicator
+            return -1;
         }
     }
 
-    /**
-     * Sets the mileage of the automobile.
-     * @param mileage The new mileage.
-     * @return A string indicating success or failure.
-     */
+    // Sets the mileage of the automobile.
+
     public String setMileage(int mileage) {
         try {
             if (mileage < 0) {
@@ -237,15 +194,12 @@ public class Automobile {
             return this.price;
         } catch (Exception e) {
             System.err.println("Failure retrieving price: " + e.getMessage());
-            return -1.0; // Return a sensible default/error indicator
+            return -1.0;
         }
     }
 
-    /**
-     * Sets the price of the automobile.
-     * @param price The new price.
-     * @return A string indicating success or failure.
-     */
+    // Sets the price of the automobile.
+
     public String setPrice(double price) {
         try {
             if (price < 0) {
@@ -263,15 +217,12 @@ public class Automobile {
             return this.isNew;
         } catch (Exception e) {
             System.err.println("Failure retrieving new status: " + e.getMessage());
-            return false; // Return a sensible default
+            return false;
         }
     }
 
-    /**
-     * Sets the condition of the automobile.
-     * @param isNew The new condition (true for new, false for used).
-     * @return A string indicating success or failure.
-     */
+    // Sets the condition of the automobile.
+
     public String setNew(boolean isNew) {
         try {
             this.isNew = isNew;
@@ -290,11 +241,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Sets the engine type of the automobile.
-     * @param engineType The new engine type.
-     * @return A string indicating success or failure.
-     */
+    // Sets the engine type of the automobile.
+
     public String setEngineType(String engineType) {
         try {
             this.engineType = engineType;
@@ -313,11 +261,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Sets the transmission type of the automobile.
-     * @param transmission The new transmission type.
-     * @return A string indicating success or failure.
-     */
+    // Sets the transmission type of the automobile.
+
     public String setTransmission(String transmission) {
         try {
             this.transmission = transmission;
@@ -335,12 +280,9 @@ public class Automobile {
             return new ArrayList<>(); // Return an empty list on failure
         }
     }
-    
-    /**
-     * Sets the features list for the automobile.
-     * @param features A list of features.
-     * @return A string indicating success or failure.
-     */
+
+    // Sets the features list for the automobile.
+
     public String setFeatures(List<String> features) {
         try {
             this.features = features;
@@ -355,15 +297,12 @@ public class Automobile {
             return this.dateAddedToInventory;
         } catch (Exception e) {
             System.err.println("Failure retrieving inventory date: " + e.getMessage());
-            return null; // Return null on failure
+            return null;
         }
     }
 
-    /**
-     * Sets the date the automobile was added to inventory.
-     * @param dateAddedToInventory The date added.
-     * @return A string indicating success or failure.
-     */
+    // Sets the date the automobile was added to inventory.
+
     public String setDateAddedToInventory(LocalDate dateAddedToInventory) {
         try {
             this.dateAddedToInventory = dateAddedToInventory;
@@ -375,11 +314,8 @@ public class Automobile {
 
     // --- Behavior Methods ---
 
-    /**
-     * Adds a single feature to the automobile's feature list.
-     * @param feature The feature to add.
-     * @return A string indicating success or failure.
-     */
+    // Adds a single feature to the automobile's feature list.
+
     public String addFeature(String feature) {
         try {
             if (this.features != null && feature != null && !feature.trim().isEmpty()) {
@@ -393,11 +329,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Removes a single feature from the automobile's feature list.
-     * @param feature The feature to remove.
-     * @return A string indicating success or failure.
-     */
+    // Removes a single feature from the automobile's feature list.
+
     public String removeFeature(String feature) {
         try {
             if (this.features != null && feature != null) {
@@ -415,12 +348,8 @@ public class Automobile {
         }
     }
 
-    /**
-     * Edits an existing feature in the automobile's feature list.
-     * @param oldFeature The feature to be replaced.
-     * @param newFeature The new feature to replace it with.
-     * @return A string indicating success or failure.
-     */
+    // Edits an existing feature in the automobile's feature list.
+
     public String editFeature(String oldFeature, String newFeature) {
         try {
             if (this.features == null || oldFeature == null || newFeature == null || newFeature.trim().isEmpty()) {
@@ -438,10 +367,7 @@ public class Automobile {
         }
     }
 
-    /**
-     * A method to display the details of the car, with error handling.
-     * @return A formatted string with the car's information, or a failure message.
-     */
+    // Method to display the details of the car, with error handling.
     @Override
     public String toString() {
         try {
