@@ -1,0 +1,40 @@
+START
+  // Initialize variables
+  DECLARE INTEGER numberOfWeeks = 4
+  DECLARE REAL totalTaxWithholding = 0.0
+  CREATE a Scanner 
+
+  // Loop through each week
+  FOR i = 1 TO numberOfWeeks
+    // Get user input
+    PRINT "Enter income for week " + i + ": $"
+    READ weeklyIncome from user
+
+    // Determine the tax rate w
+    DECLARE REAL taxRate
+    IF weeklyIncome < 500 THEN
+      SET taxRate = 0.10
+    ELSE IF weeklyIncome >= 500 AND weeklyIncome < 1500 THEN
+      SET taxRate = 0.15
+    ELSE IF weeklyIncome >= 1500 AND weeklyIncome < 2500 THEN
+      SET taxRate = 0.20
+    ELSE
+      SET taxRate = 0.30
+    END IF
+
+    // Calculate and display this week's withholding
+    DECLARE REAL taxWithholding = weeklyIncome * taxRate
+    PRINT "---> This week's withholding: $" + taxWithholding 
+
+    // Add to the total
+    SET totalTaxWithholding = totalTaxWithholding + taxWithholding
+  END FOR
+
+  // Calculate and display final results
+  DECLARE REAL averageWeeklyWithholding = totalTaxWithholding / numberOfWeeks
+
+  PRINT "Total tax withheld for " + numberOfWeeks + " weeks: $" + totalTaxWithholding (formatted to 2 decimal places)
+  PRINT "Average weekly withholding: $" + averageWeeklyWithholding (formatted to 2 decimal places)
+
+  CLOSE the Scanner 
+END
