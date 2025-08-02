@@ -1,0 +1,107 @@
+AutomobileInventory Class Pseudocode
+CLASS AutomobileInventory
+
+  // MAIN METHOD
+  FUNCTION main()
+    BEGIN TRY
+      INITIALIZE a new Scanner for user input
+      CREATE a new List of Automobile called 'inventory'
+
+      PRINT "--- Initializing Inventory ---"
+      ADD new Automobile("Honda", "Civic", ...) to inventory
+      ADD new Automobile("Ford", "F-150", ...) to inventory
+      ADD new Automobile("Tesla", "Model 3", ...) to inventory
+      PRINT success message
+
+      CALL listInventory(inventory)
+
+      PRINT "--- Removing a Vehicle ---"
+      CALL removeVehicle(inventory, "FRDF15023") and store result
+      PRINT result
+
+      PRINT "--- Adding a New Vehicle ---"
+      CREATE a new Automobile object for a Subaru Outback
+      CALL addVehicle(inventory, new Subaru) and store result
+      PRINT result
+
+      CALL listInventory(inventory)
+
+      PRINT "--- Updating a Vehicle ---"
+      CALL findVehicleByVin(inventory, "HNCV24") and store in 'carToUpdate'
+      IF carToUpdate is not null THEN
+        PRINT result of carToUpdate.setPrice(...)
+        PRINT result of carToUpdate.setColor(...)
+        PRINT result of carToUpdate.addFeature(...)
+      ELSE
+        PRINT "Vehicle not found"
+      END IF
+
+      CALL listInventory(inventory)
+
+      PROMPT user "Print to file? (Y/N)"
+      READ user response
+      IF response is "Y" THEN
+        CALL printInventoryToFile(inventory, "C:\\Temp\\Autos.txt")
+      ELSE
+        PRINT "A file will not be printed."
+      END IF
+
+    CATCH Exception
+      PRINT "An unexpected error occurred"
+      PRINT stack trace
+    END TRY
+  END FUNCTION
+
+  // HELPER METHODS
+  FUNCTION listInventory(inventory)
+    PRINT "--- Current Automobile Inventory ---"
+    IF inventory is empty THEN
+      PRINT "Inventory is empty"
+    ELSE
+      FOR EACH car IN inventory
+        PRINT car.toString()
+      END FOR
+    END IF
+    PRINT "------------------------------------"
+  END FUNCTION
+
+  FUNCTION addVehicle(inventory, car) RETURNS STRING
+    ADD car to inventory list
+    RETURN "Success: Vehicle added"
+  END FUNCTION
+
+  FUNCTION removeVehicle(inventory, vin) RETURNS STRING
+    ITERATE through inventory list
+      IF a car's VIN matches the provided vin THEN
+        REMOVE that car from the list
+        RETURN "Success: Vehicle removed"
+      END IF
+    END ITERATION
+    RETURN "Failure: Vehicle not found"
+  END FUNCTION
+
+  FUNCTION findVehicleByVin(inventory, vin) RETURNS Automobile
+    FOR EACH car IN inventory
+      IF car.getVin() equals vin THEN
+        RETURN car
+      END IF
+    END FOR
+    RETURN null
+  END FUNCTION
+
+  FUNCTION printInventoryToFile(inventory, filePath)
+    BEGIN TRY with a new PrintWriter for the filePath
+      PRINT "Printing inventory to file..."
+      WRITE a report header to the file
+      FOR EACH car IN inventory
+        WRITE car.toString() to the file
+      END FOR
+      WRITE a report footer to the file
+      PRINT "Success: File written"
+    CATCH Exception
+      PRINT "Failure: Could not write to file"
+      PRINT error details
+    END TRY
+  END FUNCTION
+
+END CLASS
