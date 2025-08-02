@@ -1,0 +1,23 @@
+PROCEDURE Main
+BEGIN
+    // Initialize
+    SET Filename TO "grades.txt"
+
+    // Read data from the file
+    grades_list = CALL ReadGradesFromFile(Filename)
+
+    // Process data if it's valid
+    IF grades_list is not NULL AND grades_list is not EMPTY THEN
+        // Calculate statistics
+        average = CALL CalculateAverage(grades_list)
+        maximum = Find the largest value in grades_list
+        minimum = Find the smallest value in grades_list
+        count = Get the number of items in grades_list
+
+        // Display the results
+        CALL DisplayResults(count, average, maximum, minimum)
+    ELSE
+        // Handle error case
+        PRINT "Error: No grades were found or the file could not be read."
+    END IF
+END
