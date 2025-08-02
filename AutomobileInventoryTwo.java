@@ -5,47 +5,43 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Iterator;
 
-/**
- * Manages an inventory of automobiles and demonstrates the functionality
- * of the Automobile class.
- */
+// Manages an inventory of automobiles and demonstrates the functionality
+
 public class AutomobileInventory {
 
-    /**
-     * The main entry point for the application.
-     * @param args Command line arguments (not used).
-     */
+    // The main entry point for the application.
+
     public static void main(String[] args) {
         // Master try-catch block to handle any unexpected errors during execution.
         try (Scanner scanner = new Scanner(System.in)) {
-            // 1. Create an ArrayList to hold the automobile inventory.
+            // Create an ArrayList to hold the automobile inventory.
             List<Automobile> inventory = new ArrayList<>();
 
             System.out.println("--- Initializing Inventory ---");
-            // 2. Call the Automobile class with the parameterized constructor to create new objects.
+            // Call the Automobile class with the parameterized constructor to create new objects.
             inventory.add(new Automobile("Honda", "Civic", 2024, "HNCV24", "Blue", 15, 25000.00, true, "1.5L Turbo", "CVT"));
             inventory.add(new Automobile("Ford", "F-150", 2023, "FRDF15023", "Red", 15000, 45000.00, false, "5.0L V8", "10-Speed Automatic"));
             inventory.add(new Automobile("Tesla", "Model 3", 2025, "TSLM325", "White", 5, 40000.00, true, "Electric", "Single-Speed"));
             System.out.println("Success: Initial inventory created with " + inventory.size() + " vehicles.\n");
 
-            // 3. Loop through the array and print the initial list of vehicles to the screen.
+            // Loop through the array and print the initial list of vehicles to the screen.
             listInventory(inventory);
 
-            // 4. Call a method to remove a vehicle.
+            // Call a method to remove a vehicle.
             System.out.println("\n--- Removing a Vehicle ---");
             String removeResult = removeVehicle(inventory, "FRDF15023"); // Remove the Ford F-150
             System.out.println(removeResult); // Print the return value.
 
-            // 5. Add a new vehicle.
+            // Add a new vehicle.
             System.out.println("\n--- Adding a New Vehicle ---");
             Automobile newCar = new Automobile("Subaru", "Outback", 2025, "SUBOTB25", "Green", 10, 38000.00, true, "2.5L Boxer", "CVT");
             String addResult = addVehicle(inventory, newCar);
             System.out.println(addResult); // Print the return value.
 
-            // 6. Call the list method and print the new vehicle information to the screen.
+            // Call the list method and print the new vehicle information to the screen.
             listInventory(inventory);
 
-            // 7. Update a vehicle.
+            // Update a vehicle.
             System.out.println("\n--- Updating a Vehicle ---");
             Automobile carToUpdate = findVehicleByVin(inventory, "HNCV24");
             if (carToUpdate != null) {
@@ -56,10 +52,10 @@ public class AutomobileInventory {
                 System.out.println("Failure: Could not find vehicle to update.");
             }
 
-            // 8. Call the listing method and print the updated information to the screen.
+            // Call the listing method and print the updated information to the screen.
             listInventory(inventory);
 
-            // 9. Ask user if they want to print the information to a file.
+            // Ask user if they want to print the information to a file.
             System.out.print("\nDo you want to print the final inventory to a file? (Y/N): ");
             String response = scanner.nextLine();
 
@@ -77,10 +73,8 @@ public class AutomobileInventory {
 
     // --- Helper Methods ---
 
-    /**
-     * Lists all vehicles in the inventory to the console.
-     * @param inventory The list of automobiles.
-     */
+    // Lists all vehicles in the inventory to the console.
+
     public static void listInventory(List<Automobile> inventory) {
         System.out.println("\n--- Current Automobile Inventory ---");
         if (inventory.isEmpty()) {
@@ -93,12 +87,8 @@ public class AutomobileInventory {
         System.out.println("------------------------------------");
     }
 
-    /**
-     * Adds an automobile to the inventory list.
-     * @param inventory The list of automobiles.
-     * @param car The automobile to add.
-     * @return A string message indicating success or failure.
-     */
+    // Adds an automobile to the inventory list.
+
     public static String addVehicle(List<Automobile> inventory, Automobile car) {
         if (inventory != null && car != null) {
             inventory.add(car);
@@ -107,12 +97,8 @@ public class AutomobileInventory {
         return "Failure: Could not add vehicle to inventory.";
     }
 
-    /**
-     * Removes an automobile from the inventory list based on its VIN.
-     * @param inventory The list of automobiles.
-     * @param vin The VIN of the vehicle to remove.
-     * @return A string message indicating success or failure.
-     */
+    // Removes an automobile from the inventory list based on its VIN.
+
     public static String removeVehicle(List<Automobile> inventory, String vin) {
         if (inventory == null || vin == null || vin.isEmpty()) {
             return "Failure: Invalid input provided for removal.";
@@ -129,12 +115,8 @@ public class AutomobileInventory {
         return "Failure: Vehicle with VIN " + vin + " not found.";
     }
     
-    /**
-     * Finds a vehicle in the inventory by its VIN.
-     * @param inventory The list of automobiles.
-     * @param vin The VIN of the vehicle to find.
-     * @return The Automobile object if found, otherwise null.
-     */
+    // Finds a vehicle in the inventory by its VIN.
+
     public static Automobile findVehicleByVin(List<Automobile> inventory, String vin) {
         for (Automobile car : inventory) {
             if (vin.equals(car.getVin())) {
@@ -144,11 +126,8 @@ public class AutomobileInventory {
         return null;
     }
 
-    /**
-     * Prints the entire inventory list to a specified text file.
-     * @param inventory The list of automobiles.
-     * @param filePath The full path of the file to write to.
-     */
+    // Prints the entire inventory list to a specified text file.
+
     public static void printInventoryToFile(List<Automobile> inventory, String filePath) {
         // Using a try-with-resources statement ensures the writer is closed automatically.
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
