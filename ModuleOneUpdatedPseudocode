@@ -1,0 +1,30 @@
+BEGIN
+  // Declare variables for person's information
+  DECLARE STRING firstName
+  DECLARE STRING lastName
+  DECLARE STRING streetAddress
+  DECLARE STRING city
+  DECLARE STRING zipCode
+
+  // 2. Prompt the user for input 
+  PROMPT "Enter first name: "
+  READ firstName
+
+  PROMPT "Enter last name: "
+  READ lastName
+
+  PROMPT "Enter street address: "
+  READ streetAddress
+
+  PROMPT "Enter city: "
+  READ city
+
+  PROMPT "Enter zip code: "
+  READ zipCode
+
+  //Display the formatted output
+  PRINT a newline and the header "--- Person's Information ---"
+  PRINT "Full Name: " + firstName + " " + lastName
+  PRINT "Address:   " + streetAddress
+  PRINT "           " + city + ", " + zipCode
+END
