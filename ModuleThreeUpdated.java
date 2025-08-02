@@ -2,43 +2,42 @@ import java.util.Scanner;
 
 public class ModuleThreeUpdated {
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        //Define total weeks and total withholding
         int numberOfWeeks = 4;
         double totalTaxWithholding = 0.0;
 
         // Loop to calculate income for each of the four weeks
-        for (int i = 1; i <= numberOfWeeks; i++)    
-            //Ask user for weekly income
+        for (int i = 1; i <= numberOfWeeks; i++) {
+            // This is the line that should appear in your console
             System.out.print("Enter income for week " + i + ": $");
+            
+            // The program will pause here, waiting for you to type a number and press Enter
             double weeklyIncome = scanner.nextDouble();
             double taxRate;
 
-            //Determine the user tax rate based on their income
-            if (weeklyIncome < 500){
+            if (weeklyIncome < 500) {
                 taxRate = 0.10;
-            }else if (weeklyIncome >=500 && weeklyIncome < 1500){
+            } else if (weeklyIncome >= 500 && weeklyIncome < 1500) {
                 taxRate = 0.15;
-            }else if (weeklyIncome >= 1500 && weeklyIncome < 2500){
+            } else if (weeklyIncome >= 1500 && weeklyIncome < 2500) {
                 taxRate = 0.20;
-            }else {
+            } else {
                 taxRate = 0.30;
             }
 
-            //calculation of tax withholding
             double taxWithholding = weeklyIncome * taxRate;
-            System.out.printf("---> This week's withholding: $%.2f%n%n", weeklyTaxWithholding);
+            System.out.printf("---> This week's withholding: $%.2f%n%n", taxWithholding);
 
-            // Calculate week withholding to the running total
-            totalTaxWithholding += weeklyTaxWithholding;
-        } 
+            totalTaxWithholding += taxWithholding;
+        }
 
-        // Calculate the average weekly withholding after all weeks
-        System.out.printf("Total tax withheld for %d weeks: $%.2f%n%n, numberOfWeeks, totaTaxWithholding);
-        System.out.printf("Average weekly withholding: $%.2f%m", averageWeeklyWithholding);   
-      
+        double averageWeeklyWithholding = totalTaxWithholding / numberOfWeeks;
+
+        System.out.printf("Total tax withheld for %d weeks: $%.2f%n", numberOfWeeks, totalTaxWithholding);
+        System.out.printf("Average weekly withholding: $%.2f%n", averageWeeklyWithholding);
+
         scanner.close();
-    }  
+    }
 }
